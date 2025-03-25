@@ -1,18 +1,17 @@
-import React from "react";
 import styled from "styled-components"
+import { color } from "../shared/types/theme/Color";
 
 const StyledHaeder = styled.header`
-    flex: 1;
-    height: 300px;
-    border-bottom-left-radius: 71px;
-    border-bottom-right-radius: 71px;
-    background-color: #1CAAC9;
+    position: fixed;
+    top: 0;
+    height: 12%;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: ${color.headerColor};
+    width: 100%;
 `;
 
-interface headerProps {
-    children: React.ReactNode
-}
-export const Header = ({children}: headerProps) => {
+export const Header = ({children}: any) => {
     return (
         <StyledHaeder>
             {children}
