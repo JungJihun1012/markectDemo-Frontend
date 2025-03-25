@@ -28,7 +28,7 @@ export const BottomTab = () => {
 const Container = styled.div`
     background-color: rgba(255, 255, 255, 1);
     width: 100%;
-    height: 12%;
+    height: 8.5%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
