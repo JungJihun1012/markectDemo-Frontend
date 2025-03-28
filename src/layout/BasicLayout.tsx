@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { Header } from "../components/header";
 import { BottomTab } from "../navigation/BottomTab";
-import { font } from "../shared/types/theme/Font";
-import { color } from "../shared/types/theme/Color";
 import { SearchIcon } from "../shared/ui/SearchIcon";
 
 const Text = {
@@ -13,13 +11,13 @@ const StyledContent = styled.div`
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    font-size: ${font.Title3};
+    font-size: 20px;
     margin-top: 12px;
     line-height: 2.3rem;
     > .label {
         display: flex;
         align-items: center;
-        background-color: ${color.white};
+        background-color: #fff;
         border-radius: 6px;
         height: 33px;
         padding: 0 0 0 10px;
@@ -34,7 +32,7 @@ const StyledContent = styled.div`
 const StyledText = styled.div`
     text-align: right;
     font-family: 'GowunDodum-Regular';
-    color: ${color.white};
+    color: #fff;
 `;
 
 

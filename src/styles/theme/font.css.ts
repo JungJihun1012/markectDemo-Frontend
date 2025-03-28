@@ -1,4 +1,6 @@
-export const font = {
+import { createThemeContract } from "@vanilla-extract/css";
+
+export const fontVars: any = createThemeContract({
     LargeTitle: "35px",
     MiddleTitle: "30px",
     Title: "26px",
@@ -6,4 +8,4 @@ export const font = {
     Title3: "20px",
     Msg: "18px",
     Weight: "bold",
-}
+});
