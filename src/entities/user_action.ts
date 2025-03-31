@@ -1,4 +1,5 @@
 export const loginUser = (dataToSubmit: {email: string, password: string}) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return async (dispatch: any) => {
         try {
             const res = await fetch(`http://localhost:3000/api/auth/login`, {
