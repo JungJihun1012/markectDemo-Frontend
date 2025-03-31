@@ -1,9 +1,9 @@
+import { loginHeaderRoot } from "../styles/loginHeader.css";
 
-
-export const diffrentHeader = ({children}: any) => {
+export const DiffrentHeader = ({children}: any) => {
     return (
-        <div className={}>
+        <header className={loginHeaderRoot}>
             {children}
-        </div>
+        </header>
     );
 };
