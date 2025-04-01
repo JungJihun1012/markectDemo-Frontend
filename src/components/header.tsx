@@ -1,9 +1,8 @@
-import { headerRoot } from "../styles/header.css"
-
+import { MainHeader } from "../styles/style.css"
 
 export const Header = ({children}: any) => {
     return (
-        <header className={headerRoot}>
+        <header className={MainHeader}>
             {children}
         </header>
     )
