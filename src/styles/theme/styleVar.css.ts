@@ -12,12 +12,12 @@ export const varsObj = {
         lightgrey: "#d3d3d3",
     },
     font: {
-        LargeTitle: "35px",
-        MiddleTitle: "30px",
-        Title: "26px",
-        Title2: "24px",
-        Title3: "20px",
-        Msg: "18px",
+        LargeTitle: "218.75%",
+        MiddleTitle: "187.5%",
+        Title: "162.5%",
+        Title2: "133%",
+        Title3: "125%",
+        Msg: "112.5%",
         Weight: "bold",
     }
 };

@@ -2,9 +2,9 @@ import { style } from "@vanilla-extract/css";
 import { varsObj } from "./theme/styleVar.css";
 
 export const Header = style({
-    position: 'fixed',
+    // position: 'fixed',
     backgroundColor: varsObj.color.headerColor,
-    width: '100%'
+    width: '100%',
 });
 
 
