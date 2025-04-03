@@ -2,7 +2,7 @@ import { useState } from "react"
 import { DiffrentHeader } from "../components/diffrentHeader"
 import { BottomTab } from "../navigation/BottomTab"
 import { ArrowIcon } from "../shared/ui/ArrowIcon"
-import { InputContainer, LoginFlexHeader, SignText, Text } from "../styles/style.css"
+import { Input, InputContainer, InputTypeCheckBox, LoginFlexHeader, SignText, Text } from "../styles/style.css"
 
 const text = {
     signInText: '로그인',
@@ -40,8 +40,16 @@ export const LoginLayout = () => {
                 <div className={Text}>
                     {text.signInText}
                 </div>
-                <input type="text" placeholder="아이디(이메일)"/>
+                <input type="text" placeholder="아이디(이메일)" className={Input} />
+                <input type="text" placeholder="비밀번호" className={Input} />
+                <div>
+                    <input type="checkbox" className={InputTypeCheckBox}/>
+                    <label>아이디 저장</label>
+                    <input type="checkbox" />
+                    <label>자동 로그인</label>
+                </div>
             </div>
+            <div><button onClick={handleTrim} >click</button></div>
             <BottomTab />
         </>
     )

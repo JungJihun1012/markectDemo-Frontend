@@ -20,22 +20,22 @@ export const LoginFlexHeader: any = style({
     width: '57%',
     justifyContent: justifyContent.spaceBetween,
     height: '100%'
-
-})
+});
 
 export const SignFont = style({
     fontSize: varsObj.font.Title2,
     fontWeight: varsObj.font.Weight
-})
+});
 
 export const SignText = style([SignFont, { 
     color: varsObj.color.white,
     display: 'flex',
     alignItems: alignItems.center,
-    height: '30%'
+    height: '30%',
+    fontFamily: 'Interop'
 }]);
 
-export const Text = style([SignFont, {color: varsObj.color.headerColor}])
+export const Text = style([SignFont, {color: varsObj.color.headerColor, marginBottom: '10px', fontFamily: 'Interop', fontWeight: 'bold'}])
 
 export const InputContainer = style({
     paddingTop: '40px',
@@ -44,6 +44,13 @@ export const InputContainer = style({
 });
 
 export const Input = style({
-    border: `1px solid ${varsObj.color.headerColor}`,
-    borderRadius: '16px'
+    border: `2px solid ${varsObj.color.headerColor}`,
+    padding: '18px 10px',
+    textAlign: 'left',
+    width: '100%',
+    borderRadius: '8px',
+    marginTop:'10px'
+});
+
+export const InputTypeCheckBox = style({
 });
