@@ -2,7 +2,22 @@ import { style } from "@vanilla-extract/css";
 import { varsObj } from "./theme/styleVar.css";
 import { Header, alignItems, justifyContent } from "./StyleObj.css";
 
-export const MainHeader = style([Header ,{
+export const Container = style({
+    backgroundColor: varsObj.color.white,
+    width: '100%',
+    height: '8.5%',
+    display: 'flex',
+    alignItems: alignItems.center,
+    justifyContent: justifyContent.spaceEvenly,
+    borderTopRightRadius: 15,
+    borderTopLeftRadius: 15,
+    border: '1px solid black',
+    position: 'fixed',
+    bottom: 0,
+    zIndex: 1
+});
+
+export const MainHeader = style([Header, {
     height: '12vh',
     borderBottomLeftRadius: 23,
     borderBottomRightRadius: 23,
@@ -27,7 +42,7 @@ export const SignFont = style({
     fontWeight: varsObj.font.Weight
 });
 
-export const SignText = style([SignFont, { 
+export const SignText = style([SignFont, {
     color: varsObj.color.white,
     display: 'flex',
     alignItems: alignItems.center,
@@ -35,7 +50,7 @@ export const SignText = style([SignFont, {
     fontFamily: 'Interop'
 }]);
 
-export const Text = style([SignFont, {color: varsObj.color.headerColor, marginBottom: '10px', fontFamily: 'Interop', fontWeight: 'bold'}])
+export const Text = style([SignFont, { color: varsObj.color.headerColor, marginBottom: '10px', fontFamily: 'Interop', fontWeight: 'bold' }])
 
 export const InputContainer = style({
     paddingTop: '40px',
@@ -49,8 +64,9 @@ export const Input = style({
     textAlign: 'left',
     width: '100%',
     borderRadius: '8px',
-    marginTop:'10px'
+    marginTop: '10px'
 });
 
-export const InputTypeCheckBox = style({
+export const InputContent = style({
+    marginTop: 17,
 });
