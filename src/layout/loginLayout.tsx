@@ -1,8 +1,12 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import { DiffrentHeader } from "../components/diffrentHeader"
 import { BottomTab } from "../navigation/BottomTab"
-import { ArrowIcon } from "../shared/ui/ArrowIcon"
+import { ArrowIcon } from "../(FSD)/shared/ui/ArrowIcon"
 import * as styles from "../styles/style.css"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { SingInUser } from "../(FSD)/entities/user_action"
+import { AppDispatch } from "../store/store"
 
 const text = {
     signInText: '로그인',
@@ -10,7 +14,13 @@ const text = {
 }
 
 export const LoginLayout = () => {
+
+    const dispatch = useDispatch<AppDispatch>();
+    const navigate = useNavigate();
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [id, setId] = useState<HTMLInputElement | any>("");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [password, setPassword] = useState<HTMLInputElement | any>("");
 
     const handleTrim = () => {
@@ -23,6 +33,21 @@ export const LoginLayout = () => {
         password.focus();
     }
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const body = {id, password};
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        dispatch(SingInUser(body)).then((res: any) => {
+            if(!res.payload.loginSuccess) {
+                navigate("/home");
+            } else {
+                alert("로그인 실패");
+            };
+        });
+    }
+
     return (
         <>
             <DiffrentHeader>
@@ -31,7 +56,7 @@ export const LoginLayout = () => {
                     <div className={styles.SignText}>{text.signInText}</div>
                 </div>
             </DiffrentHeader>
-            <div className={styles.InputContainer}>
+            <form onSubmit={handleSubmit} className={styles.InputContainer}>
                 <div className={styles.Text}>
                     {text.signInText}
                 </div>
@@ -43,7 +68,7 @@ export const LoginLayout = () => {
                     <input type="checkbox" />
                     <label>자동 로그인</label>
                 </div>
-            </div>
+            </form>
             <div><button onClick={handleTrim} >click</button></div>
             <BottomTab />
         </>

@@ -1,6 +1,6 @@
+import { SearchIcon } from "../(FSD)/shared/ui/SearchIcon";
 import { Header } from "../components/header";
 import { BottomTab } from "../navigation/BottomTab";
-import { SearchIcon } from "../shared/ui/SearchIcon";
 import * as styles from '../styles/BasicLayout.css';
 
 const Text = {

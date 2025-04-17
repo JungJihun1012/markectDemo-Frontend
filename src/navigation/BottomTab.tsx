@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { HomeIcon } from "../shared/ui/HomeIcon";
-import { HeartIcon } from "../shared/ui/HeartIcon";
-import { OrderIcon } from "../shared/ui/OrderIcon";
-import { UserIcon } from "../shared/ui/UserIcon";
+import { HomeIcon } from "../(FSD)/shared/ui/HomeIcon";
+import { HeartIcon } from "../(FSD)/shared/ui/HeartIcon";
+import { OrderIcon } from "../(FSD)/shared/ui/OrderIcon";
+import { UserIcon } from "../(FSD)/shared/ui/UserIcon";
+
 import * as styles from '../styles/style.css';
 
 
