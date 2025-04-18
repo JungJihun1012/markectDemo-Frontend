@@ -14,7 +14,7 @@ export const SingInUser = (
 ): ThunkAction<Promise<void>, RootState, unknown, AnyAction> => {
     return async (dispatch) => {
         try {
-            const res = await fetch(`${import.meta.env.BACKEND_PORT_NUMBER_VITE_ENV}/api/auth/login`, {
+            const res = await fetch(`${import.meta.env.BACKEND_PORT_NUMBER_VITE_ENV}/sign-in`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
