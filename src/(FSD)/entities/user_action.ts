@@ -6,7 +6,6 @@ interface LoginResponse {
     loginSuccess: boolean;
     isAdmin?: boolean;
     userId: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
 }
 
@@ -37,7 +36,6 @@ export const SingInUser = (
 }
 
 export const SignUpUser = (dataToSubmit: { id: string, password: string, confirmPassword: string }) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return async (dispatch: any) => {
         const response = await fetch(`${import.meta.env.BACKEND_PORT_NUMBER_VITE_ENV}/api/auth/register`, {
             method: 'POST',

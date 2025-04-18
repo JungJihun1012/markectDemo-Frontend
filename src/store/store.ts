@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { useReducer } from "react";
 
 export const store = configureStore({
     reducer: {
-        user: useReducer,
+        user: (state = {}, _action) => state,
+        
     },
 });
 

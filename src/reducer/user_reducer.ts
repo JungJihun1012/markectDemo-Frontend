@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default (state =  {}, action: any) => {
     switch(action.type) {
         case "signIn_user" :

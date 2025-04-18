@@ -32,7 +32,6 @@ export const withAuthChild: React.FC<AuthProps> = ({SpecifiComponent, option, ad
                     console.error("Error occured while authenticating", error);
                 }
             }) ();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [dispatch, navigation, option, adminRoute]);
         return <SpecifiComponent/>;
     }

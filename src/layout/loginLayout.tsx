@@ -18,9 +18,7 @@ export const LoginLayout = () => {
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [id, setId] = useState<HTMLInputElement | any>("");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [password, setPassword] = useState<HTMLInputElement | any>("");
 
     const handleTrim = () => {
@@ -38,7 +36,6 @@ export const LoginLayout = () => {
 
         const body = {id, password};
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         dispatch(SingInUser(body)).then((res: any) => {
             if(!res.payload.loginSuccess) {
                 navigate("/home");

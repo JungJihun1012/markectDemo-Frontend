@@ -7,7 +7,6 @@ const Text = {
     todayDinner: '오늘 저녁은 이걸로 ?'
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const BasicLayout = ({ children }: any) => {
     return (
         <div className={styles.styledLayout}>
