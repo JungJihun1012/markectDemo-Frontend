@@ -70,3 +70,21 @@ export const Input = style({
 export const InputContent = style({
     marginTop: 17,
 });
+
+export const RegisterContent = style({
+    maxWidth: 600,
+    margin: 'auto',
+    padding: 20,
+    border: '1px solid #ddd',
+    borderRadius: 8
+})
+
+export const RegsiterContainer = style({
+    height: 400,
+    overflowY: 'auto',
+    border: '1px solid #ccc',
+    padding: 10,
+    marginBottom: 10,
+    borderRadius: 4,
+    backgroundColor: '#fafafa'
+});
