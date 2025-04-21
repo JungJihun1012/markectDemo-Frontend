@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, FormEvent, ChangeEvent } from 'reac
 import { useNavigate } from 'react-router-dom';
 import MessageList from '../components/register/MessageList';
 import InputForm from '../components/register/InputForm';
+import * as styles from '../styles/style.css';
 import {
   SignUpDTO,
   Message,
@@ -12,6 +13,12 @@ import {
   emailRegex,
 } from '../types/tpyes';
 import { RegisterContent, RegsiterContainer } from '../styles/style.css';
+import { ArrowIcon } from '../(FSD)/shared/ui/ArrowIcon';
+import { BottomTab } from '../navigation/BottomTab';
+
+const text = {
+  signUp: '회원가입'
+}
 
 const ChatRegister: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
@@ -63,27 +70,29 @@ const ChatRegister: React.FC = () => {
         break;
 
       case 'info':
-        { const parts = trimmedInput.split(',').map(s => s.trim());
-        if (parts.length !== 2) {
-          setMessages(prev => [...prev, { role: 'bot', content: '닉네임과 이메일을 정확한 형식으로 입력해주세요. 예: 홍길동, example@example.com' }]);
-        } else {
-          const [displayName, email] = parts;
-          if (!displayNameRegex.test(displayName)) {
-            setMessages(prev => [...prev, { role: 'bot', content: '닉네임은 한영숫자 및 한글 2~16자만 가능합니다. 다시 입력해주세요.' }]);
-            return;
+        {
+          const parts = trimmedInput.split(',').map(s => s.trim());
+          if (parts.length !== 2) {
+            setMessages(prev => [...prev, { role: 'bot', content: '닉네임과 이메일을 정확한 형식으로 입력해주세요. 예: 홍길동, example@example.com' }]);
+          } else {
+            const [displayName, email] = parts;
+            if (!displayNameRegex.test(displayName)) {
+              setMessages(prev => [...prev, { role: 'bot', content: '닉네임은 한영숫자 및 한글 2~16자만 가능합니다. 다시 입력해주세요.' }]);
+              return;
+            }
+            if (email && !emailRegex.test(email)) {
+              setMessages(prev => [...prev, { role: 'bot', content: '유효한 이메일 주소를 입력해주세요.' }]);
+              return;
+            }
+            setUserData((prev: any) => ({ ...prev, displayName, email }));
+            setMessages(prev => [...prev, { role: 'bot', content: '회원가입이 완료되었습니다!' }]);
+            setStep('done');
+            setTimeout(() => {
+              navigate('/');
+            }, 2000);
           }
-          if (email && !emailRegex.test(email)) {
-            setMessages(prev => [...prev, { role: 'bot', content: '유효한 이메일 주소를 입력해주세요.' }]);
-            return;
-          }
-          setUserData((prev: any) => ({ ...prev, displayName, email }));
-          setMessages(prev => [...prev, { role: 'bot', content: '회원가입이 완료되었습니다!' }]);
-          setStep('done');
-          setTimeout(() => {
-            navigate('/');
-          }, 2000);
+          break;
         }
-        break; }
 
       case 'done':
         setMessages(prev => [...prev, { role: 'bot', content: '회원가입이 이미 완료되었습니다.' }]);
@@ -96,17 +105,27 @@ const ChatRegister: React.FC = () => {
   };
 
   return (
-    <div className={RegisterContent}>
-      <h2>회원가입 채팅</h2>
-      <div className={RegsiterContainer}>
-        <MessageList messages={messages} ref={chatEndRef} />
+    <div>
+      <div className={styles.LoginFlexHeader}>
+        <div onClick={() => window.location.href=`/`}>
+          <ArrowIcon/>
+        </div>
+        <div className={styles.SignText}>{text.signUp}</div>
+        </div>
+      <div className={RegisterContent}>
+        <div className={RegsiterContainer}>
+          <MessageList messages={messages} ref={chatEndRef} />
+        </div>
+        <div className={styles.FormBox}>
+          <InputForm
+            input={input}
+            onInputChange={handleInputChange}
+            onSubmit={handleSubmit}
+            disabled={step === 'done'}
+          />
+        </div>
       </div>
-      <InputForm
-        input={input}
-        onInputChange={handleInputChange}
-        onSubmit={handleSubmit}
-        disabled={step === 'done'}
-      />
+      <BottomTab/>
     </div>
   );
 };

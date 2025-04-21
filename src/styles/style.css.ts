@@ -11,10 +11,9 @@ export const Container = style({
     justifyContent: justifyContent.spaceEvenly,
     borderTopRightRadius: 15,
     borderTopLeftRadius: 15,
-    border: '1px solid black',
     position: 'fixed',
     bottom: 0,
-    zIndex: 1
+    zIndex: 99999
 });
 
 export const MainHeader = style([Header, {
@@ -28,18 +27,18 @@ export const SecondHeader = style([Header, {
     width: '100%'
 }]);
 
-export const LoginFlexHeader: any = style({
+export const LoginFlexHeader = style([Header,{
     display: 'flex',
     flexDirection: 'row',
     alignItems: alignItems.center,
-    width: '57%',
-    justifyContent: justifyContent.spaceBetween,
-    height: '100%'
-});
+    height: 45,
+    width: '100%',
+}]);
+
 
 export const SignFont = style({
     fontSize: varsObj.font.Title2,
-    fontWeight: varsObj.font.Weight
+    // fontWeight: varsObj.font.Weight
 });
 
 export const SignText = style([SignFont, {
@@ -47,7 +46,9 @@ export const SignText = style([SignFont, {
     display: 'flex',
     alignItems: alignItems.center,
     height: '30%',
-    fontFamily: 'Interop'
+    fontFamily: 'Interop',
+    position: 'absolute',
+    left: '40%'
 }]);
 
 export const Text = style([SignFont, { color: varsObj.color.headerColor, marginBottom: '10px', fontFamily: 'Interop', fontWeight: 'bold' }])
@@ -74,17 +75,24 @@ export const InputContent = style({
 export const RegisterContent = style({
     maxWidth: 600,
     margin: 'auto',
-    padding: 20,
-    border: '1px solid #ddd',
     borderRadius: 8
 })
 
 export const RegsiterContainer = style({
-    height: 400,
+    height: 500,
     overflowY: 'auto',
-    border: '1px solid #ccc',
-    padding: 10,
+    marginTop: 30,
+    padding: 20,
     marginBottom: 10,
-    borderRadius: 4,
     backgroundColor: '#fafafa'
+});
+
+export const FormBox = style({
+    height: 150,
+    backgroundColor: varsObj.color.headerColor,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    position: "fixed",
+    bottom: 0,
+    width: '100%'
 });
