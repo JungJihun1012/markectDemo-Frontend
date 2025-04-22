@@ -60,7 +60,7 @@ export const UserLayout = () => {
                         {uploadedImage ? (
                             <img src={uploadedImage}></img>
                         ): (
-                            <div></div>
+                            <img src={myData}></img>
                         )}
                         <div className={styles.RegsiterContainer}
                         style={{
