@@ -9,6 +9,7 @@ export const Container = style({
     display: 'flex',
     alignItems: alignItems.center,
     justifyContent: justifyContent.spaceEvenly,
+    border: '1px solid #ccc',
     borderTopRightRadius: 15,
     borderTopLeftRadius: 15,
     position: 'fixed',
@@ -31,9 +32,10 @@ export const LoginFlexHeader = style([Header,{
     display: 'flex',
     flexDirection: 'row',
     alignItems: alignItems.center,
-    height: 45,
+    height: 50,
     width: '100%',
 }]);
+
 
 
 export const SignFont = style({
@@ -69,7 +71,78 @@ export const Input = style({
 });
 
 export const InputContent = style({
-    marginTop: 17,
+    marginTop: 13,
+    display: 'flex',
+    gap: 20
+});
+
+export const SaveId = style({
+    display: 'flex',
+    alignItems: 'center',
+    gap: 5
+});
+
+export const Check = style({
+    display: 'none'
+});
+export const Label = style({
+    display: 'inline-block',
+    width: 20,
+    height: 20,
+    border: '2px solid #707070',
+    position: 'relative',
+    selectors: {
+        'input[type="checkbox"]:checked + &::after': {
+      content: '"✔"',
+      fontSize: 16,
+      color: '#000',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: 20,
+      height: 20,
+      textAlign: 'center',
+      lineHeight: '20px',
+      userSelect: 'none',
+    },
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: 20,
+      height: 20,
+      textAlign: 'center',
+      lineHeight: '20px',
+      userSelect: 'none',
+    },
+    }
+})
+
+export const AutoLogin = style({
+    display: 'flex',
+    alignItems: 'center',
+    gap: 5 
+});
+
+export const ButtonContent = style({
+    paddingTop: 30,
+    width: '80%',
+    margin: '0 auto',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 10,
+    height: 400
+});
+
+export const Button = style({
+    border: 'none',
+    padding: '8px 20px',
+    borderRadius: 20,
+    textAlign: 'center',
+    width: '100%',
+    fontSize: varsObj.font.Msg,
+    fontWeight: varsObj.font.Weight,
 });
 
 export const RegisterContent = style({
