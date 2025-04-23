@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { RegisterContent, RegsiterContainer } from './style.css';
 
 export const styledLayout = style({
     height: '100vh',
@@ -25,6 +26,14 @@ export const labelStyle = style({
     height: '33px',
     padding: '0 0 0 10px',
 });
+
+export const BasicMainContent = style([RegisterContent, {
+    
+}])
+
+export const BasicMainContainer = style([RegsiterContainer, {
+    width: 200
+}])
 
 export const inputStyle = style({
     fontSize: '12px',

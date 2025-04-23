@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowIcon } from '../(FSD)/shared/ui/ArrowIcon';
 import { BottomTab } from '../navigation/BottomTab';
 import * as styles from '../styles/style.css';
@@ -20,6 +20,7 @@ export const UserLayout = () => {
         const token = localStorage.getItem('authToken');
         setIsLogin(!!token);
     }, []);
+
     const handleImgChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const input = e.target;
         if(input.files) {
@@ -60,7 +61,7 @@ export const UserLayout = () => {
                         {uploadedImage ? (
                             <img src={uploadedImage}></img>
                         ): (
-                            <img src={}></img>
+                            <div></div>
                         )}
                         <div className={styles.RegsiterContainer}
                         style={{

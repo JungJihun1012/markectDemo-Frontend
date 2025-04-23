@@ -149,7 +149,8 @@ export const RegisterContent = style({
     maxWidth: 600,
     margin: 'auto',
     borderRadius: 8
-})
+});
+
 
 export const RegsiterContainer = style({
     height: 500,

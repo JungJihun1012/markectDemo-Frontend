@@ -7,7 +7,7 @@ const Text = {
     todayDinner: '오늘 저녁은 이걸로 ?'
 };
 
-const BasicLayout = ({ children }: any) => {
+const BasicLayout = () => {
     return (
         <div className={styles.styledLayout}>
             <Header>
@@ -23,7 +23,11 @@ const BasicLayout = ({ children }: any) => {
                     </label>
                 </div>
             </Header>
-            <main>{children}</main>
+                <div className={styles.BasicMainContent}>
+                    <div className={styles.BasicMainContainer}>
+
+                    </div>
+                </div>
             <BottomTab />
         </div>
     );
