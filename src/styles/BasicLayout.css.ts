@@ -28,11 +28,11 @@ export const labelStyle = style({
 });
 
 export const BasicMainContent = style([RegisterContent, {
-    
+    position: 'relative',
 }])
 
 export const BasicMainContainer = style([RegsiterContainer, {
-    width: 200
+    width: 200,
 }])
 
 export const inputStyle = style({
