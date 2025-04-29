@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 import { GlobalStyles } from './GlobalStyles';
 
 
-const Provider = () => {
+const ReactProvider = () => {
     const queryClient = new QueryClient();
     return(
         <QueryClientProvider client={queryClient}>
@@ -14,4 +14,4 @@ const Provider = () => {
     )
 }
 
-export default Provider;
+export default ReactProvider;
