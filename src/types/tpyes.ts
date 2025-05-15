@@ -5,6 +5,15 @@ export interface SignUpDTO {
     email?: string;
 }
 
+
+export interface LoginResponse {
+    loginSuccess: boolean;
+    isAdmin?: boolean;
+    userId: string;
+    [key: string]: any;
+}
+
+
 export type Message = {
     role: 'system' | 'user' | 'bot';
     content: string;

@@ -1,43 +1,44 @@
 import axios from "axios";
-import {AnyAction, ThunkAction} from '@reduxjs/toolkit';
+import { AnyAction, ThunkAction } from '@reduxjs/toolkit';
 import { RootState } from "../../store/store";
-
-interface LoginResponse {
-    loginSuccess: boolean;
-    isAdmin?: boolean;
-    userId: string;
-    [key: string]: any;
-}
+import { LoginResponse } from "../../types/tpyes";
 
 export const SingInUser = (
-    dataToSubmit: { id: string, password: string }
-): ThunkAction<Promise<void>, RootState, unknown, AnyAction> => {
+    dataToSubmit: { username: string, password: string }
+): ThunkAction<Promise<LoginResponse | undefined>, RootState, unknown, AnyAction> => {
     return async (dispatch) => {
         try {
-            const res = await fetch(`${import.meta.env.BACKEND_PORT_NUMBER_VITE_ENV}/sign-in`, {
+            const res = await fetch(`http://localhost:8081/sign-in`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(dataToSubmit)
             });
+
             const data: LoginResponse = await res.json();
+            console.log(data);
+
             if (!res.ok) {
-                throw new Error(data.message || "failed SingIn")
+                throw new Error(data.message || "failed SignIn");
             }
+
             dispatch({
                 type: "signIn_user",
                 payload: data
             });
+
+            return data; // <-- return the actual login result
         } catch (error) {
-            console.error("Login deburging error", error);
+            console.error("Login debugging error", error);
+            return undefined;
         }
     }
-}
+};
 
 export const SignUpUser = (dataToSubmit: { id: string, password: string, confirmPassword: string }) => {
     return async (dispatch: any) => {
-        const response = await fetch(`${import.meta.env.BACKEND_PORT_NUMBER_VITE_ENV}/api/auth/register`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_PORT_NUMBER}/api/auth/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application'

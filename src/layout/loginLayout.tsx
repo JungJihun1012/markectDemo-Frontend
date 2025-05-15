@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { SingInUser } from "../(FSD)/entities/user_action"
 import { AppDispatch } from "../store/store"
+import { LoginResponse } from "../types/tpyes"
 
 const text = {
     signInText: '로그인',
@@ -14,7 +15,7 @@ const text = {
 }
 
 export const LoginLayout = () => {
-    const [id, setId] = useState("");
+    const [username, setId] = useState("");
     const [password, setPassword] = useState("");
 
     const dispatch = useDispatch<AppDispatch>();
@@ -23,7 +24,7 @@ export const LoginLayout = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (!id.trim()) {
+        if (!username.trim()) {
             alert("아이디를 입력해주세요.");
             return;
         }
@@ -33,10 +34,10 @@ export const LoginLayout = () => {
             return;
         }
 
-        const body = { id, password };
+        const body = { username, password };
 
-        dispatch(SingInUser(body)).then((res: any) => {
-            if (res.payload.loginSuccess) {
+        dispatch(SingInUser(body)).then((res: LoginResponse | undefined) => {
+            if (res?.loginSuccess) {
                 navigate("/home");
             } else {
                 alert("로그인 실패");
@@ -66,7 +67,7 @@ export const LoginLayout = () => {
                     type="text"
                     placeholder="아이디(이메일)"
                     className={styles.Input}
-                    value={id}
+                    value={username}
                     onChange={(e) => setId(e.target.value)}
                 />
 
